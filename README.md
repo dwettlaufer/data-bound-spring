@@ -34,6 +34,9 @@ project for the MSIT program, as it is only being designed to provide the servic
 
 ## Branch Explanations
 
+### feature/jdbcExample
+This example uses pure JDBC to make database connections. The purpose of this example is to provide an appreciation for the power of Spring Data.
+
 ### feature/jdbcTemplateExample
 This example is using hard coded SQL injected into a repository class that executes the SQL statements against an embedded database through JdbcTemplate. This is not technically
  part of Spring Data but is used to show what Spring Data is replacing.
