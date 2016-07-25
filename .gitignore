@@ -1,4 +1,10 @@
 *.class
+*.class
+.DS_Store
+.classpath
+.project
+.settings
+.springBeans
 
 # Package Files #
 *.jar
