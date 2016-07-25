@@ -7,7 +7,7 @@
     <context:property-placeholder location="classpath*:/piiDataServices.properties"/>
 
     <jdbc:embedded-database id="piiDataSource" type="H2">
-        <jdbc:script location="${db.ddl.location}"/>
+        <jdbc:script location="classpath*:/databaseCreate.sql"/>
         <jdbc:script location="classpath*:/testData.sql"/>
     </jdbc:embedded-database>
 

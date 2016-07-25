@@ -2,7 +2,6 @@ package com.frankmoley.services.pii.data.repository;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -14,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.frankmoley.PiiDataServicesTestConfiguration;
 import com.frankmoley.services.pii.data.entity.PersonEntity;
 
 
@@ -21,7 +21,7 @@ import com.frankmoley.services.pii.data.entity.PersonEntity;
  * @author Frank Moley
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath*:/repository-test-context.xml")
+@ContextConfiguration(classes = {PiiDataServicesTestConfiguration.class})
 @Transactional
 public class PersonEntityRepositoryTest {
 

@@ -4,14 +4,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.UUID;
 
 import javax.sql.DataSource;
 
 import org.apache.commons.lang.StringUtils;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +20,7 @@ import com.frankmoley.services.pii.data.mapper.PersonEntityRowMapper;
 /**
  * @author Frank Moley
  */
+@Repository
 public class PersonEntityRepository extends PiiRepository {
 
     private final static String PARAM_PERSON_ID = "personId";
@@ -30,7 +30,7 @@ public class PersonEntityRepository extends PiiRepository {
     private final static String PARAM_LAST_NAME = "lastName";
     private final static String PARAM_SUFFIX = "suffix";
 
-    public PersonEntityRepository(DataSource dataSource, Properties sqlProperties) {
+    public PersonEntityRepository(DataSource dataSource, Environment sqlProperties) {
         super(dataSource, sqlProperties);
     }
 
