@@ -1,30 +1,16 @@
 package com.frankmoley.services.pii.data.entity;
 
-import java.util.UUID;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 /**
  * @author Frank Moley
  */
-@Document(collection = "PERSON")
 public class PersonEntity {
 
-    @Id
     private String id;
     private String prefix;
     private String firstName;
     private String middleName;
     private String lastName;
     private String suffix;
-
-    public PersonEntity(){
-        super();
-        if(null==id){
-            this.id = UUID.randomUUID().toString();
-        }
-    }
 
     public String getId() {
         return id;
