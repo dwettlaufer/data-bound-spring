@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.sql.DataSource;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Repository;
@@ -30,8 +28,8 @@ public class PersonEntityRepository extends PiiRepository {
     private final static String PARAM_LAST_NAME = "lastName";
     private final static String PARAM_SUFFIX = "suffix";
 
-    public PersonEntityRepository(DataSource dataSource, Environment sqlProperties) {
-        super(dataSource, sqlProperties);
+    public PersonEntityRepository(Environment sqlProperties) {
+        super(sqlProperties);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

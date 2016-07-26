@@ -8,12 +8,11 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.frankmoley.PiiDataServicesTestConfiguration;
+import com.frankmoley.PiiDataServices;
 import com.frankmoley.services.pii.data.entity.PersonEntity;
 
 
@@ -21,8 +20,7 @@ import com.frankmoley.services.pii.data.entity.PersonEntity;
  * @author Frank Moley
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {PiiDataServicesTestConfiguration.class})
-@Transactional
+@SpringApplicationConfiguration(classes = {PiiDataServices.class})
 public class PersonEntityRepositoryTest {
 
     private String person1Id = "8824b797-2b05-4166-8b79-3cd479d7ba29";
