@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,9 +42,9 @@ public class PersonController {
     public HttpEntity<Person> addPerson(@RequestBody Person model) {
         Person person = this.personManager.addPerson(model);
         person.add(linkTo(methodOn(PersonController.class).getPerson(person.getPersonId())).withSelfRel());
-        ResponseEntity entity =  new ResponseEntity<Person>(person, HttpStatus.CREATED);
-        entity.getHeaders().add("Location", linkTo(methodOn(PersonController.class).getPerson(person.getPersonId())).toString());
-        return entity;
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Location", linkTo(methodOn(PersonController.class).getPerson(person.getPersonId())).toString());
+        return new ResponseEntity<Person>(person, headers, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
